@@ -3,11 +3,11 @@ let answeredCount = 0;
 const score = document.getElementById("score");
 const ratio = document.getElementById("ratio");
 fetch("./questions.json")
-  .then(response => response.json())
-  .then(questions => {
+  .then((response) => response.json())
+  .then((questions) => {
     const quizList = document.getElementById("quiz-list");
 
-    questions.forEach(question => {
+    questions.forEach((question) => {
       const card = document.createElement("div");
       card.className = "quiz-card";
 
@@ -51,14 +51,22 @@ fetch("./questions.json")
       correctButton.addEventListener("click", () => {
         correctCount++;
         answeredCount++;
+
         score.textContent = `正解数: ${correctCount}`;
-        ratio.textContent = `正解率: ${Math.round(100 * correctCount / answeredCount)} %`;
+        ratio.textContent = `正解率: ${Math.round((100 * correctCount) / answeredCount)} %`;
+
+        answer.classList.add("correct-answer");
+
         incorrectButton.hidden = true;
       });
 
       incorrectButton.addEventListener("click", () => {
         answeredCount++;
-        ratio.textContent = `正解率: ${Math.round(100 * correctCount / answeredCount)} %`;
+
+        ratio.textContent = `正解率: ${Math.round((100 * correctCount) / answeredCount)} %`;
+
+        answer.classList.add("incorrect-answer");
+
         correctButton.hidden = true;
       });
 

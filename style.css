@@ -152,6 +152,16 @@ button {
   background-color: #dc2626;
 }
 
+.answer.correct-answer {
+  background-color: #ef4444;
+  color: white;
+}
+
+.answer.incorrect-answer {
+  background-color: #3b82f6;
+  color: white;
+}
+
 /* 正解数 */
 #score {
   max-width: 700px;
